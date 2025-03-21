@@ -50,7 +50,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-      
+          path: ${{github.workspace}}/published-app
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -64,4 +65,4 @@ jobs:
         with:
           app-name: 'boyapp'
           slot-name: 'Production'
-          package: ${{github.workspace}}/.net-app
+          package: ${{github.workspace}}/published-app
